@@ -22,9 +22,6 @@ export class MeasurementController {
 
         let measurement = new measurementModel(req.body);
 
-        console.log(JSON.stringify(req.body));
-        console.log(JSON.stringify(measurement));
-
         measurement.save((err, measurement) => {
             if (err) {
                 res.send(err);
@@ -32,6 +29,36 @@ export class MeasurementController {
             res.json(measurement);
         });
 
+    }
+
+    public getDeviceList(req: Request, res: Response) {
+
+        measurementModel.aggregate([{
+            $group: {
+                _id: '$deviceId',
+                numberMeasurement: { $sum: 1 }
+            }
+        }], (err, result) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(result);
+        });
+
+    }
+
+    public getMeasurmentsForDevice(req: Request, res: Response) {
+
+        let deviceId: string = req.params.deviceId;
+
+        measurementModel.find({
+            deviceId: deviceId
+        }, (err, measurements) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(measurements);
+        });
     }
 
 }
