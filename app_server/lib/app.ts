@@ -2,6 +2,8 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { MeasurementRoutes } from "./routes/MeasurementRoutes";
 import * as mongoose from "mongoose";
+import path = require("path");
+import * as logger from "morgan";
 
 class App {
 
@@ -24,11 +26,17 @@ class App {
 
     private config(): void {
 
+        this.app.use(logger('dev'));
+
+
         // support application/json type post data
         this.app.use(bodyParser.json());
 
         // support application/x-www-form-urlencoded post data
         this.app.use(bodyParser.urlencoded({ extended: false }));
+
+        this.app.use(express.static('public'));
+        this.app.use(function(req, res) { res.sendfile(path.join(__dirname, '../public', 'index.html')) });
 
     }
 }
