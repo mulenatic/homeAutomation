@@ -1,7 +1,7 @@
 import { Application } from 'express';
 import { MeasurementController } from '../controllers/MeasurementControllers';
 
-export class Routes {
+export class MeasurementRoutes {
 
     public measurementController: MeasurementController = new MeasurementController();
 
