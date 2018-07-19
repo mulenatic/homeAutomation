@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./routes/crmRoutes";
+import * as mongoose from "mongoose";
 
 class App {
 
@@ -11,6 +12,14 @@ class App {
         this.app = express();
         this.config();
         this.routePrv.routes(this.app);
+        this.mongoSetup();
+    }
+
+    private mongoSetup(): void {
+
+        let dbURI = 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASSWORD + '@ds143070.mlab.com:43070/gettingmean';
+        //        mongoose.Promise = global.Promise;
+        mongoose.connect(dbURI);
     }
 
     private config(): void {
