@@ -8,7 +8,8 @@ export class MeasurementRoutes {
     public routes(app: Application): void {
 
         app.route('/api/measurement')
-            .get(this.measurementController.getAllMeasurements);
+            .get(this.measurementController.getAllMeasurements)
+            .post(this.measurementController.addMeasurement);
 
     }
 
