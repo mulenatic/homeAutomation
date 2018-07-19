@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import { ContactSchema } from '../models/crmModel';
+import { ContactSchema } from '../models/crmModels';
 import { Request, Response } from 'express';
 
 const Contact = mongoose.model('Contact', ContactSchema);
@@ -58,7 +58,7 @@ export class ContactController {
 
         Contact.remove(
             { _id: req.params.contactId },
-            (err, contact) => {
+            (err) => {
                 if (err) {
                     res.send(err)
                 }
