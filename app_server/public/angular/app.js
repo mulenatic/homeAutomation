@@ -1,1 +1,3 @@
-angular.module("homeAutomationApp", []);
+(function() {
+    angular.module("homeAutomationApp", ['ngRoute']);
+})();
