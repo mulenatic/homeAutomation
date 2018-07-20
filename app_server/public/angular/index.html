@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="home-automation">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Automation</title>
@@ -25,7 +25,15 @@
     </div>
     <div class="container">
       <div ng-view>
-	    Hallo
+	<div id="banner" class="page-header">
+	  <div class="row">
+	    <div class="col-lg-6"></div>
+	    <h1>
+	      Titel
+	      <small> Strapline </small>
+	    </h1>
+	  </div>
+	</div>
       </div>
       <footer>
 	<div class="row">
