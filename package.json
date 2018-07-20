@@ -1,25 +1,26 @@
 {
-    "name": "homeautomation",
-    "version": "0.0.1",
-    "description": "INcludes server and client projects",
-    "main": "index.js",
-    "scripts": {
-	"start": "npm run dev",
-	"dev": "concurrently \"npm run dev:server\"",
-	"dev:server": "cd app_server && npm run dev"
-    },
-    "repository": {
-	"type": "git",
-	"url": "git+https://github.com/mulenatic/homeAutomation.git"
-    },
-    "author": "Thomas Kaczmarek",
-    "license": "ISC",
-    "bugs": {
-	"url": "https://github.com/mulenatic/homeAutomation/issues"
-    },
-    "homepage": "https://github.com/mulenatic/homeAutomation#readme",
-    "dependencies": {
-	"concurrently": "^3.6.0",
-	"path": "^0.12.7"
-    }
+   "name": "homeautomation",
+   "version": "0.0.1",
+   "description": "INcludes server and client projects",
+   "main": "index.js",
+   "scripts": {
+      "start": "npm run dev",
+      "dev": "concurrently \"npm run dev:server\"",
+      "dev:server": "cd app_server && npm run dev"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/mulenatic/homeAutomation.git"
+   },
+   "author": "Thomas Kaczmarek",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/mulenatic/homeAutomation/issues"
+   },
+   "homepage": "https://github.com/mulenatic/homeAutomation#readme",
+   "dependencies": {
+      "concurrently": "^3.6.0",
+      "ts-node": "^7.0.0",
+      "typescript": "^2.9.2"
+   }
 }
