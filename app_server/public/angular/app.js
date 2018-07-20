@@ -1,16 +1,16 @@
 (function() {
     angular
-	.module("homeAutomationApp", ['ngRoute']);
+	.module("homeAutomationApp", []);
 
     var homeCtrl = function($scope) {
 	$scope.data = {
-	    title: "Ein neuer Titel"
+	    title: "Ein neuer Titel",
+	    strapline: "Teststrapline"
 	}
     }
 
     angular
 	.module("homeAutomationApp")
 	.controller("homeCtrl", homeCtrl);
-
-    
 })();
+

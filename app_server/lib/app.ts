@@ -28,7 +28,6 @@ class App {
 
         this.app.use(logger('dev'));
 
-
         // support application/json type post data
         this.app.use(bodyParser.json());
 
@@ -36,7 +35,13 @@ class App {
         this.app.use(bodyParser.urlencoded({ extended: false }));
 
         this.app.use(express.static('public'));
-        this.app.use(function(req, res) { res.sendFile(path.join(__dirname, '../public/angular', 'index.html')) });
+        //this.app.use(function(req, res) { res.sendFile(path.join(__dirname, '../public/angular', 'index.html')) });
+
+        // handle every other route with index.html, which will contain
+        // a script tag to your application's JavaScript file(s).
+        this.app.get('*', function(request, response) {
+            response.sendFile(path.resolve(__dirname, '..', 'public', 'angular', 'index.html'));
+        });
 
     }
 }
