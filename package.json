@@ -5,7 +5,7 @@
    "main": "index.js",
    "scripts": {
       "start": "npm run dev",
-      "dev": "concurrently \"npm run dev:server\"",
+      "dev": "npm run dev:server",
       "dev:server": "cd app_server && npm run dev"
    },
    "repository": {
@@ -19,8 +19,5 @@
    },
    "homepage": "https://github.com/mulenatic/homeAutomation#readme",
    "dependencies": {
-      "concurrently": "^3.6.0",
-      "ts-node": "^7.0.0",
-      "typescript": "^2.9.2"
    }
 }
