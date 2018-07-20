@@ -36,7 +36,7 @@ class App {
         this.app.use(bodyParser.urlencoded({ extended: false }));
 
         this.app.use(express.static('public'));
-        this.app.use(function(req, res) { res.sendfile(path.join(__dirname, '../public', 'index.html')) });
+        this.app.use(function(req, res) { res.sendFile(path.join(__dirname, '../public/angular', 'index.html')) });
 
     }
 }
