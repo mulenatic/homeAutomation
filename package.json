@@ -4,7 +4,7 @@
     "description": "INcludes server and client projects",
     "main": "index.js",
     "scripts": {
-	"start": "npm dev",
+	"start": "npm run dev",
 	"dev": "concurrently \"npm run dev:server\"",
 	"dev:server": "cd app_server && npm run dev"
     },
