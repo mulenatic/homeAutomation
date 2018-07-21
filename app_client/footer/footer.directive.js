@@ -7,7 +7,7 @@
     function footerGeneric() {
 	return {
 	    restrict: 'EA',
-	    templateUrl: '/angular/footer/footer.view.html'
+	    templateUrl: 'footer/footer.view.html'
 	};
     }
 

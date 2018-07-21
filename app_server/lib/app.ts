@@ -39,8 +39,7 @@ class App {
 
         this.app.use(express.static('public'));
         this.app.use(express.static('node_modules'));
-        //this.app.use(function(req, res) { res.sendFile(path.join(__dirname, '../public/angular', 'index.html')) });
-
+        this.app.use(express.static(path.resolve(__dirname, '..', '..', 'app_client')));
 
     }
 }
