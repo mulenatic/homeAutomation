@@ -18,11 +18,13 @@
     "angular": "^1.7.2",
     "angular-route": "^1.7.2",
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.2",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "mongoose": "^5.2.4",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.3",
+    "popper.js": "^1.14.3",
     "ts-node": "^7.0.0",
     "typescript": "^2.9.2"
   }

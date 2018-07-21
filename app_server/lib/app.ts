@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { MeasurementRoutes } from "./routes/MeasurementRoutes";
+import { UiRoutes } from "./routes/UiRoutes";
 import * as mongoose from "mongoose";
 import path = require("path");
 import * as logger from "morgan";
@@ -9,11 +10,13 @@ class App {
 
     public app: express.Application;
     public measurementRoutes: MeasurementRoutes = new MeasurementRoutes();
+    public uiRoutes: UiRoutes = new UiRoutes();
 
     constructor() {
         this.app = express();
         this.config();
         this.measurementRoutes.routes(this.app);
+        this.uiRoutes.routes(this.app);
         this.mongoSetup();
     }
 
@@ -35,13 +38,9 @@ class App {
         this.app.use(bodyParser.urlencoded({ extended: false }));
 
         this.app.use(express.static('public'));
+        this.app.use(express.static('node_modules'));
         //this.app.use(function(req, res) { res.sendFile(path.join(__dirname, '../public/angular', 'index.html')) });
 
-        // handle every other route with index.html, which will contain
-        // a script tag to your application's JavaScript file(s).
-        this.app.get('*', function(request, response) {
-            response.sendFile(path.resolve(__dirname, '..', 'public', 'angular', 'index.html'));
-        });
 
     }
 }
