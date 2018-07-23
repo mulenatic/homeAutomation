@@ -14,11 +14,14 @@
 
 	measurementService
 	    .getDeviceList()
-	    .success(function(data) {
-		vm.deviceList = data
-	    })
-	    .error(function(e) {
-		console.log(e);
+	    .then(function(data) {
+		vm.deviceList = data;
+	    },
+		  function(e) {
+		      console.log(e);
+		  })
+	    .catch(function(e) {
+		console.log(e)
 	    });
 	
     }
