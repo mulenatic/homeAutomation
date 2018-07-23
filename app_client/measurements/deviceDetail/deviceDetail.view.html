@@ -3,7 +3,13 @@
 
   <page-header content="vm.pageHeader"></page-header>
 
-  Showing measurements for device {{vm.deviceId}}
+  <p>
+    Showing measurements for device {{vm.deviceId}}
+    </p>
+
+  <p>
+    Which measurement type shall be displayed: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
+  </p>
 
   <table class="table">
     <thead>
@@ -12,7 +18,7 @@
       <th>Value</th>
     </thead>
     <tbody>
-      <tr ng-repeat="item in vm.data | filter:'temperature'">
+      <tr ng-repeat="item in vm.data | filter:typeFilter">
 	<td>{{item.createdOn}}</td>
 	<td>{{item.measurementType}}</td>
 	<td>{{item.measurementValue}}</td>

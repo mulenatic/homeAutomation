@@ -19,13 +19,20 @@
 	    .getDeviceMeasurements(vm.deviceId)
 	    .then( (data) => {
 		vm.data = data.data
+
+		vm.measurementTypes = [];
+		vm.data.forEach((item) => {
+		    if (!vm.measurementTypes.includes(item.measurementType)) {
+			vm.measurementTypes.push(item.measurementType);
+		    }
+		});
 	    })
 	    .catch( (err) => {
 		console.log(error);
 	    });
 
-
     }
+
 
 
 })();
