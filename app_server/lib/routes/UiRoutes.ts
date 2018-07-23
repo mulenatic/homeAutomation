@@ -5,9 +5,9 @@ export class UiRoutes {
 
     public routes(app: Application): void {
 
-        app.route('/')
+        app.route('*')
             .get((req: Request, res: Response) => {
-                res.sendFile(path.resolve(__dirname, '..', '..', 'public', 'angular', 'index.html'));
+                res.sendFile(path.resolve(__dirname, '..', '..', '..', 'app_client', 'index.html'));
             });
     }
 }
