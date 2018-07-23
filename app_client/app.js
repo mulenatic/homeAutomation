@@ -18,6 +18,11 @@
 		controller: 'measurementsOverviewCtrl',
 		controllerAs: 'vm'
 	    })
+	    .when('/measurementOverview/:deviceId', {
+		templateUrl: 'measurements/measurementsOverview.view.html',
+		controller: 'measurementsOverviewCtrl',
+		controllerAs: 'vm'
+	    })
     	    .otherwise({redirectTo: '/'});
     }
 

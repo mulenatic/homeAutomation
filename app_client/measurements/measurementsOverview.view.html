@@ -3,10 +3,20 @@
 
   <page-header content="vm.pageHeader"></page-header>
 
-  Übersicht über die Sensoren.
-  Tabelle mit jeweils einem Link pro Sensor.
-
-  {{vm.deviceList || 'undefined' }}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+	<th scope="col">ID</th>
+	<th scope="col">Number Measurements</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr scope="col" ng-repeat="device in vm.deviceList.data">
+	<td><a href="/measurementOverview/:{{device._id}}">{{device._id}}</a></td>
+	<td>{{device.numberMeasurement}}</td>
+      </tr>
+    </tbody>
+  </table>
   
   <footer-generic></footer-generic>
 
