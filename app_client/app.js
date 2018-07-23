@@ -1,16 +1,21 @@
 (function() {
-    angular
-	.module("homeAutomationApp", []);
 
-    var homeCtrl = function($scope) {
-	$scope.data = {
-	    title: "Ein neuer Titel",
-	    strapline: "Teststrapline"
-	}
+    angular
+	.module("homeAutomationApp", ['ngRoute']);
+
+    function config($routeProvider) {
+    	$routeProvider
+    	    .when('/', {
+    		templateUrl: 'home/home.view.html',
+    		controller: 'homeCtrl',
+    		controllerAs: 'vm'
+    	    })
+    	    .otherwise({redirectTo: '/'});
     }
 
     angular
-	.module("homeAutomationApp")
-	.controller("homeCtrl", homeCtrl);
+    	.module('homeAutomationApp')
+    	.config(config);
+
 })();
 
