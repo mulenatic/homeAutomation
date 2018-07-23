@@ -12,9 +12,16 @@
 	    
 	}
 
+	var getDeviceMeasurements = function(deviceId) {
+	    return $http.get('/api/measurement/device/' + deviceId)
+	}
+
 	return {
-	    getDeviceList: getDeviceList
+	    getDeviceList: getDeviceList,
+	    getDeviceMeasurements: getDeviceMeasurements
 	};
     }
+
+
 
 })();

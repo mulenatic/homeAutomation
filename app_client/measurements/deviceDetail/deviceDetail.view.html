@@ -3,7 +3,23 @@
 
   <page-header content="vm.pageHeader"></page-header>
 
-  Device details. {{vm.message}}
+  Showing measurements for device {{vm.deviceId}}
+
+  <table class="table">
+    <thead>
+      <th>Time</th>
+      <th>Type</th>
+      <th>Value</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in vm.data | filter:'temperature'">
+	<td>{{item.createdOn}}</td>
+	<td>{{item.measurementType}}</td>
+	<td>{{item.measurementValue}}</td>
+      </tr>
+    </tbody>
+  </table>
+    
   
   <footer-generic></footer-generic>
 

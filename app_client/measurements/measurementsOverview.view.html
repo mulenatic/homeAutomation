@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <tr scope="col" ng-repeat="device in vm.deviceList.data">
-	<td><a href="/measurementOverview/:{{device._id}}">{{device._id}}</a></td>
+	<td><a href="/measurementOverview/{{device._id}}">{{device._id}}</a></td>
 	<td>{{device.numberMeasurement}}</td>
       </tr>
     </tbody>
