@@ -8,8 +8,8 @@
 
 	var getDeviceList = function () {
 
-	    return $http.get('/api/measurement/device');
-
+	    //return $http.get('/api/measurement/device');
+	    return { result: 'Test' };
 	}
 
 	return {
