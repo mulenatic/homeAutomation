@@ -1,7 +1,7 @@
 (function() {
 
     angular
-	.module("homeAutomationApp", ['ngRoute']);
+	.module("homeAutomationApp", ['ngRoute', 'chart.js']);
 
     function config($routeProvider, $locationProvider) {
 
@@ -25,6 +25,7 @@
 	    })
     	    .otherwise({redirectTo: '/'});
     }
+
 
     angular
     	.module('homeAutomationApp')
