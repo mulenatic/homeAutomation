@@ -19,8 +19,8 @@
 		controllerAs: 'vm'
 	    })
 	    .when('/measurementOverview/:deviceId', {
-		templateUrl: 'measurements/measurementsOverview.view.html',
-		controller: 'measurementsOverviewCtrl',
+		templateUrl: 'measurements/deviceDetail/deviceDetail.view.html',
+		controller: 'deviceDetailCtrl',
 		controllerAs: 'vm'
 	    })
     	    .otherwise({redirectTo: '/'});
