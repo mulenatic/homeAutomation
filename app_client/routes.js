@@ -13,6 +13,7 @@
     		controller: 'homeCtrl',
     		controllerAs: 'vm'
     	    })
+	
 	    .when('/ui/measurementOverview', {
 		templateUrl: 'measurements/measurementsOverview.view.html',
 		controller: 'measurementsOverviewCtrl',
@@ -21,6 +22,12 @@
 	    .when('/ui/deviceDetail/:deviceId', {
 		templateUrl: 'measurements/deviceDetail/deviceDetail.view.html',
 		controller: 'deviceDetailCtrl',
+		controllerAs: 'vm'
+	    })
+	
+	    .when('/ui/phoneServices/twilioConfigurationct', {
+		templateUrl: 'phoneServices/twilioConfiguration/twilioConfiguration.view.html',
+		controller: "twilioConfigurationCtrl",
 		controllerAs: 'vm'
 	    })
     	    .otherwise({redirectTo: '/ui'});

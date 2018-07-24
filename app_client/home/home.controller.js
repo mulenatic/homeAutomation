@@ -9,7 +9,7 @@
 
 	vm.pageHeader = {
 	    title: 'Startseite',
-	    strapline: 'Überblick über alle verfügbaren Services'
+	    strapline: 'Alle Services auf einen Blick'
 	};
 	
     }
