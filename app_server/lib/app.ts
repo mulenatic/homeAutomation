@@ -1,21 +1,25 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import { MeasurementRoutes } from "./routes/MeasurementRoutes";
 import { UiRoutes } from "./routes/UiRoutes";
 import * as mongoose from "mongoose";
 import path = require("path");
 import * as logger from "morgan";
 
+import { MeasurementRoutes } from "./routes/MeasurementRoutes";
+import { TwilioRoutes } from "./routes/TwilioRoutes";
+
 class App {
 
     public app: express.Application;
     public measurementRoutes: MeasurementRoutes = new MeasurementRoutes();
+    public twilioRoutes: TwilioRoutes = new TwilioRoutes();
     public uiRoutes: UiRoutes = new UiRoutes();
 
     constructor() {
         this.app = express();
         this.config();
         this.measurementRoutes.routes(this.app);
+        this.twilioRoutes.routes(this.app);
         this.uiRoutes.routes(this.app);
         this.mongoSetup();
     }
