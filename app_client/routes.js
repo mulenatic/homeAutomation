@@ -1,16 +1,30 @@
 (function() {
     angular
 	.module("homeAutomationApp")
-	.config(['$routeProvider', config]);
+	.config(config);
 
-    function config($routeProvider) {
-	$routeProvider
-	    .when('/', {
-		templateUrl: 'angular/home/home.view.html',
-		controller: 'homeCtrl',
+    function config($routeProvider, $locationProvider) {
+
+	$locationProvider.html5Mode(true);
+	
+    	$routeProvider
+    	    .when('/ui', {
+    		templateUrl: 'home/home.view.html',
+    		controller: 'homeCtrl',
+    		controllerAs: 'vm'
+    	    })
+	    .when('/ui/measurementOverview', {
+		templateUrl: 'measurements/measurementsOverview.view.html',
+		controller: 'measurementsOverviewCtrl',
 		controllerAs: 'vm'
-		
 	    })
-	    .otherwise({redirectTo: '/'});
+	    .when('/ui/deviceDetail/:deviceId', {
+		templateUrl: 'measurements/deviceDetail/deviceDetail.view.html',
+		controller: 'deviceDetailCtrl',
+		controllerAs: 'vm'
+	    })
+    	    .otherwise({redirectTo: '/ui'});
     }
+
+
 }());

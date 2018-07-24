@@ -5,26 +5,32 @@
 
   <p>
     Showing measurements for device {{vm.deviceId}}
-    </p>
-
-  <p>
-    Which measurement type shall be displayed: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
   </p>
 
-  <table class="table">
-    <thead>
-      <th>Time</th>
-      <th>Type</th>
-      <th>Value</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="item in vm.data | filter:typeFilter">
-	<td>{{item.createdOn}}</td>
-	<td>{{item.measurementType}}</td>
-	<td>{{item.measurementValue}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <label>Show data table: 
+    <input type="checkbox" ng-model="vm.showTable">
+  </label>
+
+  <div ng-show="vm.showTable"> 
+    <p>
+      Which measurement type shall be displayed: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
+    </p>
+
+    <table class="table">
+      <thead>
+	<th>Time</th>
+	<th>Type</th>
+	<th>Value</th>
+      </thead>
+      <tbody>
+	<tr ng-repeat="item in vm.data | filter:typeFilter">
+	  <td>{{item.createdOn}}</td>
+	  <td>{{item.measurementType}}</td>
+	  <td>{{item.measurementValue}}</td>
+	</tr>
+      </tbody>
+    </table>
+  </div>
 
   <canvas id="line" class="chart chart-line" chart-data="vm.chartdata" chart-labels="vm.chartlabels" chart-series="vm.chartseries"></canvas>
   

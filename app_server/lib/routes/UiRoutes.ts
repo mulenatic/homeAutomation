@@ -7,6 +7,20 @@ export class UiRoutes {
 
         app.route('/')
             .get((req: Request, res: Response) => {
+                console.log('Get request for homepage');
+                res.sendFile(path.resolve(__dirname, '..', '..', '..', 'app_client', 'index.html'));
+            });
+
+        app.route('/ui')
+            .get((req: Request, res: Response) => {
+                console.log('Get request for other page');
+                res.sendFile(path.resolve(__dirname, '..', '..', '..', 'app_client', 'index.html'));
+            });
+
+
+        app.route('/ui/*')
+            .get((req: Request, res: Response) => {
+                console.log('Get request for other page');
                 res.sendFile(path.resolve(__dirname, '..', '..', '..', 'app_client', 'index.html'));
             });
     }
