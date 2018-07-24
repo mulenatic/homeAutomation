@@ -6,7 +6,8 @@
    "scripts": {
       "start": "npm run dev",
       "dev": "npm run dev:server",
-      "dev:server": "cd app_server && npm run dev"
+      "dev:server": "cd app_server && npm run dev",
+      "install": "cd app_server && npm install"
    },
    "repository": {
       "type": "git",

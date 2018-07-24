@@ -3,18 +3,24 @@
 
   <page-header content="vm.pageHeader"></page-header>
 
-  <p>
-    Showing measurements for device {{vm.deviceId}}
-  </p>
+  <div class="card">
+    <div class="card-title">
+      Anzeige-Optionen
+    </div>
+    <div class="card-body">
 
-  <label>Show data table: 
-    <input type="checkbox" ng-model="vm.showTable">
-  </label>
+      <p>
+	Welcher Messtyp soll angezeigt werden: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
+      </p>
+
+      <label>Zeige Daten als Tabelle: 
+	<input type="checkbox" ng-model="vm.showTable">
+      </label>
+      
+    </div>
+  </div>
 
   <div ng-show="vm.showTable"> 
-    <p>
-      Which measurement type shall be displayed: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
-    </p>
 
     <table class="table">
       <thead>
@@ -32,7 +38,14 @@
     </table>
   </div>
 
-  <canvas id="line" class="chart chart-line" chart-data="vm.chartdata" chart-labels="vm.chartlabels" chart-series="vm.chartseries"></canvas>
+  {{vm.chartdata}}
+
+  <div class="card" ng-repeat="item in vm.measurementTypes" ng-hide="vm.showTable" >
+    <div class="card-title">{{item}}</div>
+    <div class="card-body">
+      <canvas id="line" class="chart chart-line" chart-data="vm.chartdata[item]" chart-labels="vm.chartlabels" chart-series="vm.chartseries" ></canvas>
+    </div>
+  </div>
   
   <footer-generic></footer-generic>
 
