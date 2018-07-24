@@ -6,10 +6,10 @@
     function measurementsOverviewCtrl(measurementService) {
 
 	var vm = this;
-
+	
 	vm.pageHeader = {
-	    title: 'Sensoren',
-	    strapline: 'Überblick über alle verfügbaren Sensoren'
+	    title: 'Messwerte',
+	    strapline: ' aller Sensoren'
 	};
 
 	measurementService

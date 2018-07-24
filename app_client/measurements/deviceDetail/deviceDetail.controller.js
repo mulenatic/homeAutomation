@@ -16,9 +16,8 @@
 	};
 
 	vm.chartdata={};
-	vm.chartlabels=[];
+	vm.chartlabels={};
 	vm.measurementTypes = [];
-	vm.chartseries = [];
 
 	measurementService
 	    .getDeviceMeasurements(vm.deviceId)
@@ -33,16 +32,15 @@
 
 		vm.measurementTypes.forEach((item) => {
 		    vm.chartdata[item] = [];
-		    vm.chartseries.push(item);
+		    vm.chartlabels[item] = [];
 		});
 
 
 		vm.data.forEach((item) => {
-		    
+
 		    vm.chartdata[item.measurementType].push(item.measurementValue);
-		    if (index == 0) {
-			vm.chartlabels.push($filter('date')(item.createdOn, 'short'));
-		    }
+		    vm.chartlabels[item.measurementType].push($filter('date')(item.createdOn, 'short'));
+
 
 		});
 

@@ -1,20 +1,27 @@
 <navigation></navigation>
 <main role="main" class="container">
-
   
   <page-header content="vm.pageHeader"></page-header>
 
-  <div class="card col-bg-6">
-    <div class="card-title">Messungen</div>
-    <div class="card-body">
-      <a class="button btn-primary" role="button" href="/ui/measurementOverview">Zu den Messwerten</a>
-    </div>
-  </div>
+  <div class="container">
+    <div class="row">
+      
+      <div class="card col-lg-6">
+	<h4 class="card-header">Messungen</h4>
+	<div class="card-body">
 
-  <div class="card col-bg-6">
-    <div class="card-title">Anrufe</div>
-    <div class="card-body">
-      <a class="button btn-primary" role="button" href="/ui/phoneServices/twilioConfigurationct">Zu den Anrufen</a>
+	  <p>Hier finden sie alle Messungen, die in diesem System erfasst wurden.</p>
+	  <a class="btn btn-primary btn-lg" href="/ui/measurementOverview">Messwerte</a>
+	</div>
+      </div>
+
+      <div class="card col-lg-6">
+	<h4 class="card-header">Anrufe</h4>
+	<div class="card-body">
+	  <p>Hier können sie alles rund um die Anrufservices des Systems einstellen.</p>
+	  <a class="btn btn-primary btn-lg" href="/ui/phoneServices/twilioConfigurationct">Anrufkonfiguration</a>
+	</div>
+      </div>
     </div>
   </div>
 

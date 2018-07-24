@@ -3,50 +3,52 @@
 
   <page-header content="vm.pageHeader"></page-header>
 
-  <div class="card">
-    <div class="card-title">
-      Anzeige-Optionen
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-title">
+	Anzeige-Optionen
+      </div>
+      <div class="card-body">
+
+	<p>
+	  Welcher Messtyp soll angezeigt werden: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
+	</p>
+
+	<label>Zeige Daten als Tabelle: 
+	  <input type="checkbox" ng-model="vm.showTable">
+	</label>
+	
+      </div>
     </div>
-    <div class="card-body">
 
-      <p>
-	Welcher Messtyp soll angezeigt werden: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
-      </p>
+    <div ng-show="vm.showTable"> 
 
-      <label>Zeige Daten als Tabelle: 
-	<input type="checkbox" ng-model="vm.showTable">
-      </label>
-      
+      <table class="table">
+	<thead>
+	  <th>Time</th>
+	  <th>Type</th>
+	  <th>Value</th>
+	</thead>
+	<tbody>
+	  <tr ng-repeat="item in vm.data | filter:typeFilter">
+	    <td>{{item.createdOn}}</td>
+	    <td>{{item.measurementType}}</td>
+	    <td>{{item.measurementValue}}</td>
+	  </tr>
+	</tbody>
+      </table>
+    </div>
+
+
+    <div class="card" ng-repeat="item in vm.measurementTypes" ng-hide="vm.showTable">
+      <div class="card-title">{{item}}</div>
+      <div class="card-body">
+	<canvas id="line" class="chart chart-line" chart-data="vm.chartdata[item]" chart-labels="vm.chartlabels[item]"></canvas>
+      </div>
     </div>
   </div>
 
-  <div ng-show="vm.showTable"> 
 
-    <table class="table">
-      <thead>
-	<th>Time</th>
-	<th>Type</th>
-	<th>Value</th>
-      </thead>
-      <tbody>
-	<tr ng-repeat="item in vm.data | filter:typeFilter">
-	  <td>{{item.createdOn}}</td>
-	  <td>{{item.measurementType}}</td>
-	  <td>{{item.measurementValue}}</td>
-	</tr>
-      </tbody>
-    </table>
-  </div>
-
-  {{vm.chartdata}}
-
-  <div class="card" ng-repeat="item in vm.measurementTypes" ng-hide="vm.showTable" >
-    <div class="card-title">{{item}}</div>
-    <div class="card-body">
-      <canvas id="line" class="chart chart-line" chart-data="vm.chartdata[item]" chart-labels="vm.chartlabels" chart-series="vm.chartseries" ></canvas>
-    </div>
-  </div>
-  
   <footer-generic></footer-generic>
 
 </main>
