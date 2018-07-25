@@ -1,16 +1,20 @@
 (function() {
 
     angular
-	.module('homeAutomation')
+	.module('homeAutomationApp')
 	.service('phonenumberConfigurationService', phonenumberConfigurationService);
 
     function phonenumberConfigurationService($http) {
 
-	var getAllPhonenumberConfigurations() {
+	var getAllPhonenumberConfigurations = function() {
 
 	    return $http.get('/api/phonenumberConfiguration');
 
 	}
+
+	return {
+	    getAllPhonenumberConfigurations: getAllPhonenumberConfigurations
+	};
     }
 
 })();
