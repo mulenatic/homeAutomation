@@ -18,42 +18,46 @@
 	vm.chartdata={};
 	vm.chartlabels={};
 	vm.measurementTypes = [];
+	vm.showAll = false;
 
-	measurementService
-	    .getDeviceMeasurements(vm.deviceId)
-	    .then( (data) => {
-		vm.data = data.data;
+	vm.getMeasurementData = function() {
 
-		vm.data.forEach((item) => {
-		    if (!vm.measurementTypes.includes(item.measurementType)) {
-			vm.measurementTypes.push(item.measurementType);
-		    }
+	    measurementService
+		.getDeviceMeasurements(vm.deviceId, vm.showAll)
+		.then( (data) => {
+		    vm.data = data.data;
+
+		    vm.data.forEach((item) => {
+			if (!vm.measurementTypes.includes(item.measurementType)) {
+			    vm.measurementTypes.push(item.measurementType);
+			}
+		    });
+
+		    vm.measurementTypes.forEach((item) => {
+			vm.chartdata[item] = [];
+			vm.chartlabels[item] = [];
+		    });
+
+
+		    vm.data.forEach((item) => {
+
+			vm.chartdata[item.measurementType].push(item.measurementValue);
+			vm.chartlabels[item.measurementType].push($filter('date')(item.createdOn, 'short'));
+
+
+		    });
+
+		    
+		})
+		.catch( (err) => {
+		    console.log(error);
 		});
+	}
 
-		vm.measurementTypes.forEach((item) => {
-		    vm.chartdata[item] = [];
-		    vm.chartlabels[item] = [];
-		});
-
-
-		vm.data.forEach((item) => {
-
-		    vm.chartdata[item.measurementType].push(item.measurementValue);
-		    vm.chartlabels[item.measurementType].push($filter('date')(item.createdOn, 'short'));
-
-
-		});
-
-		
-	    })
-	    .catch( (err) => {
-		console.log(error);
-	    });
-
+	vm.getMeasurementData();
 
 
     }
-
 
 
 })();

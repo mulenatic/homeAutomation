@@ -14,10 +14,16 @@
 	  Welcher Messtyp soll angezeigt werden: <select ng-model="typeFilter" ng-options="x for x in vm.measurementTypes"></select>
 	</p>
 
-	<label>Zeige Daten als Tabelle: 
-	  <input type="checkbox" ng-model="vm.showTable">
-	</label>
-	
+	<p>
+	  <label>Zeige Daten als Tabelle: 
+	    <input type="checkbox" ng-model="vm.showTable">
+	  </label>
+	</p>
+
+	<p>
+	  <label>Zeige alle Daten:
+	    <input type="checkbox" ng-model="vm.showAll" ng-change="vm.getMeasurementData()">
+	  </label>	
       </div>
     </div>
 
