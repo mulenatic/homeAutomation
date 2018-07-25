@@ -24,10 +24,14 @@
 		controller: 'deviceDetailCtrl',
 		controllerAs: 'vm'
 	    })
-	
-	    .when('/ui/phoneServices/twilioConfigurationct', {
+	    .when('/ui/phoneServices/twilioConfiguration', {
 		templateUrl: 'phoneServices/twilioConfiguration/twilioConfiguration.view.html',
 		controller: "twilioConfigurationCtrl",
+		controllerAs: 'vm'
+	    })
+	    .when('/ui/phoneServices/phoneNumberConfiguration', {
+		templateUrl: 'phoneServices/twilioConfiguration/phoneNumberConfiguration.view.html',
+		controller: "phoneNumberConfigurationCtrl",
 		controllerAs: 'vm'
 	    })
     	    .otherwise({redirectTo: '/ui'});
