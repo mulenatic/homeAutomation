@@ -30,8 +30,13 @@
 		controllerAs: 'vm'
 	    })
 	    .when('/ui/phoneServices/phoneNumberConfiguration', {
-		templateUrl: 'phoneServices/twilioConfiguration/phoneNumberConfiguration.view.html',
+		templateUrl: 'phoneServices/phoneNumberConfiguration/all/phoneNumberConfiguration.view.html',
 		controller: "phoneNumberConfigurationCtrl",
+		controllerAs: 'vm'
+	    })
+	    .when('/ui/phoneServices/phoneNumberConfiguration/create', {
+		templateUrl: 'phoneServices/phoneNumberConfiguration/edit/phoneNumberConfiguration.view.html',
+		controller: "phoneNumberConfigurationEditCtrl",
 		controllerAs: 'vm'
 	    })
     	    .otherwise({redirectTo: '/ui'});
