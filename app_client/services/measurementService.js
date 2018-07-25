@@ -12,8 +12,11 @@
 	    
 	}
 
-	var getDeviceMeasurements = function(deviceId) {
-	    return $http.get('/api/measurement/device/' + deviceId)
+	var getDeviceMeasurements = function(deviceId, isAll) {
+
+	    var timeString = isAll ? "" : "/today";
+	    
+	    return $http.get('/api/measurement/device/' + deviceId + timeString);
 	}
 
 	return {
@@ -21,7 +24,5 @@
 	    getDeviceMeasurements: getDeviceMeasurements
 	};
     }
-
-
 
 })();

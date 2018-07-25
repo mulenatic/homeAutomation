@@ -47,12 +47,13 @@ export class MeasurementController {
 
     }
 
-    public getMeasurmentsForDevice(req: Request, res: Response) {
+    public getCurrentDayMeasurmentsForDevice(req: Request, res: Response) {
 
         let deviceId: string = req.params.deviceId;
 
         measurementModel.find({
-            deviceId: deviceId
+            deviceId: deviceId,
+            createdOn: { $gt: (new Date).setHours(0, 0, 0, 0) }
         }, (err, measurements) => {
             if (err) {
                 res.send(err);
@@ -60,5 +61,20 @@ export class MeasurementController {
             res.json(measurements);
         });
     }
+
+    public getAllMeasurmentsForDevice(req: Request, res: Response) {
+
+        let deviceId: string = req.params.deviceId;
+
+        measurementModel.find({
+            deviceId: deviceId,
+        }, (err, measurements) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(measurements);
+        });
+    }
+
 
 }

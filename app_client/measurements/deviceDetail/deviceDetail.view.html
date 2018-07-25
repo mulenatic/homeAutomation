@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div ng-show="vm.showTable"> 
+    <div ng-if="vm.showTable"> 
 
       <table class="table">
 	<thead>
@@ -40,10 +40,12 @@
     </div>
 
 
-    <div class="card" ng-repeat="item in vm.measurementTypes" ng-hide="vm.showTable">
-      <div class="card-title">{{item}}</div>
-      <div class="card-body">
-	<canvas id="line" class="chart chart-line" chart-data="vm.chartdata[item]" chart-labels="vm.chartlabels[item]"></canvas>
+    <div ng-if="!vm.showTable">
+      <div class="card" ng-repeat="item in vm.measurementTypes">
+	<div class="card-title">{{item}}</div>
+	<div class="card-body">
+	  <canvas id="line" class="chart chart-line" chart-data="vm.chartdata[item]" chart-labels="vm.chartlabels[item]"></canvas>
+	</div>
       </div>
     </div>
   </div>

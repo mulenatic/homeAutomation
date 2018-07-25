@@ -15,7 +15,10 @@ export class MeasurementRoutes {
             .get(this.measurementController.getDeviceList);
 
         app.route('/api/measurement/device/:deviceId')
-            .get(this.measurementController.getMeasurmentsForDevice);
+            .get(this.measurementController.getAllMeasurmentsForDevice);
+
+        app.route('/api/measurement/device/:deviceId/today')
+            .get(this.measurementController.getCurrentDayMeasurmentsForDevice);
 
     }
 
