@@ -16,7 +16,7 @@
 	phonenumberConfigurationService
 	    .getAllPhonenumberConfigurations()
 	    .then((data) => {
-		vm.configurations = data;
+		vm.configurations = data.data;
 	    }, (err) => {
 		console.log(err);
 	    })

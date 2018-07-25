@@ -19,12 +19,8 @@ export class PhonenumberConfigurationController {
 
 
     public savePhonenumberConfiguration(req: Request, res: Response) {
-
-        console.log('savePhonenumberConfiguration');
-        console.log(req.body);
-
         phonenumberConfigurationModel
-            .create(req.body.phonenumberConfiguration, (err, configuration) => {
+            .create(req.body, (err, configuration) => {
                 if (err) {
                     res.send(err);
                 }
