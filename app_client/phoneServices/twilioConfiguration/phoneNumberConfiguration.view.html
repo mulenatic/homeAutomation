@@ -3,7 +3,22 @@
 
   <page-header content="vm.pageHeader"></page-header>
 
-  Rufnummer-Konfiguration
+  {{vm.configurations}}
+
+  <table>
+    <thead>
+      <tr>
+	<th>Name</th>
+	<th>Nummer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in vm.configurations">
+	<td>{{item.name}}</td>
+	<td>{{item.number}}</td>
+      </tr>
+    </tbody>
+  </table>
 
   <footer-generic></footer-generic>
 
