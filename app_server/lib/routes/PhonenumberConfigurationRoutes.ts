@@ -8,7 +8,8 @@ export class PhonenumberConfigurationRoutes {
     public routes(app: Application): void {
 
         app.route('/api/phonenumberConfiguration')
-            .get(this.controller.getAllPhonenumberConfigurations);
+            .get(this.controller.getAllPhonenumberConfigurations)
+            .post(this.controller.savePhonenumberConfiguration);
 
     }
 

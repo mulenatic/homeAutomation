@@ -9,20 +9,27 @@
 	var vm = this;
 
 	vm.pageHeader = {
-	    title: 'Rufnummer Konfiguration',
-	    strapline: 'Neuanlage/Bearbeitung einer Rufnummern'
+	    title: 'Neuanlage einer Rufnummer',
+	    strapline: ''
 	};
 
-	phonenumberConfigurationService
-	    .getAllPhonenumberConfigurations()
-	    .then((data) => {
-		vm.configurations = data;
-	    }, (err) => {
-		console.log(err);
-	    })
-	    .catch((err) => {
-		console.log(err);
-	    });
+	vm.input = {};
+	
+	vm.input.name = null;
+	vm.input.number = null;
+
+	vm.savePhonenumberConfiguration = function() {
+	    phonenumberConfigurationService
+		.savePhonenumberConfiguration(vm.input)
+		.then((configuration) => {
+		    $location.path('/ui/phoneServices/phoneNumberConfiguration');
+		}).
+		catch((err) => {
+		    console.log(err);
+		});;
+	};
+
+	
 
     }
 

@@ -12,10 +12,18 @@
 
 	}
 
+	var savePhonenumberConfiguration = function(input) {
+
+	    return $http.post('/api/phonenumberConfiguration', input);
+
+	}
+
 	return {
-	    getAllPhonenumberConfigurations: getAllPhonenumberConfigurations
+	    getAllPhonenumberConfigurations: getAllPhonenumberConfigurations,
+	    savePhonenumberConfiguration: savePhonenumberConfiguration
 	};
     }
+    
 
 })();
 
