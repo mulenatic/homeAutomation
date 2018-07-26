@@ -18,9 +18,15 @@
 
 	}
 
+	var deleteConfiguration = function(configurationId) {
+
+	    return $http.delete('/api/phonnumberConfiguration/' + String(configurationId));
+	}
+
 	return {
 	    getAllPhonenumberConfigurations: getAllPhonenumberConfigurations,
-	    savePhonenumberConfiguration: savePhonenumberConfiguration
+	    savePhonenumberConfiguration: savePhonenumberConfiguration,
+	    deleteConfiguration: deleteConfiguration
 	};
     }
     

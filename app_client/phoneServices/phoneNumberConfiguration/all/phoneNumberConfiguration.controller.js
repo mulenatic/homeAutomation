@@ -13,7 +13,9 @@
 	    strapline: 'Liste der anrufbaren Rufnummern'
 	};
 
-	phonenumberConfigurationService
+	vm.getConfigurations = function() {
+
+	    phonenumberConfigurationService
 	    .getAllPhonenumberConfigurations()
 	    .then((data) => {
 		vm.configurations = data.data;
@@ -23,6 +25,29 @@
 	    .catch((err) => {
 		console.log(err);
 	    });
+	    
+	}
+
+	vm.deleteConfiguration = function(configurationId) {
+
+	    phonenumberConfigurationService
+		.deleteConfiguration(configurationId)
+		.then((data) => {
+		    vm.getConfigurations();
+		}, (err) => {
+		    vm.getConfigurations();
+		    console.log(err);
+		    alert(err);
+		})
+		.catch((err) => {
+		    console.log(err);
+		    alert(err);
+		));
+		
+
+	};
+
+	vm.getConfigurations();
 
     }
 

@@ -9,12 +9,17 @@
       <tr>
 	<th>Name</th>
 	<th>Nummer</th>
+	<th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="item in vm.configurations">
 	<td>{{item.name}}</td>
 	<td>{{item.number}}</td>
+	<td>
+	  <button class="btn btn-secondary btn-sm">Bearbeiten</button>&nbsp;
+	  <button class="btn btn-secondary btn-sm" ng-click="vm.deleteConfiguration(item._id)">Löschen</button>
+	</td>
       </tr>
     </tbody>
   </table>

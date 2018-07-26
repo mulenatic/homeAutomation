@@ -29,4 +29,17 @@ export class PhonenumberConfigurationController {
 
     }
 
+    public deletePhonenumberConfiguration(req: Request, res: Response) {
+
+        var id = req.params.id;
+        phonenumberConfigurationModel
+            .deleteOne({ _id: id }, (err) => {
+                if (err) {
+                    console.log(err);
+                }
+                res.sendStatus(204);
+            });
+
+    }
+
 }
