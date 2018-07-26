@@ -36,16 +36,34 @@ export class PhonenumberConfigurationController {
     }
 
     public savePhonenumberConfiguration(req: Request, res: Response) {
-        phonenumberConfigurationModel
-            .create(req.body, (err, configuration) => {
-                if (err) {
-                    res.statusCode = 400;
-                    console.log(err);
-                    res.send(err);
-                } else {
-                    res.json(configuration);
-                }
-            });
+
+        if (!req.body._id) {
+
+            phonenumberConfigurationModel
+                .create(req.body, (err, configuration) => {
+                    if (err) {
+                        res.statusCode = 400;
+                        console.log(err);
+                        res.send(err);
+                    } else {
+                        res.json(configuration);
+                    }
+                });
+
+        } else {
+
+            phonenumberConfigurationModel
+                .findOneAndUpdate({ _id: req.body._id }, req.body, (err, configuration) => {
+                    if (err) {
+                        res.statusCode = 400;
+                        console.log(err);
+                        res.send(err);
+                    } else {
+                        res.json(configuration);
+                    }
+                });
+        }
+
 
     }
 

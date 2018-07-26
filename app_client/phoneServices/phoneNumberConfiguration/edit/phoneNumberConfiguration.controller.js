@@ -19,12 +19,12 @@
 	vm.input.number = null;
 	vm.errorMessage = null;
 
-	if ($routeParams._id) {
+	if ($routeParams.id) {
 
 	    phonenumberConfigurationService
-		.getPhonenumberConfiguration($routeParams._id);
+		.getPhonenumberConfiguration($routeParams.id)
 		.then((configuration) => {
-		    vm.input = configuration.data;
+		    vm.input = configuration.data[0];
 		})
 		.catch((err) => {
 		    vm.errorMessage = "Beim Laden der Daten ist ein Problem aufgetreten";
