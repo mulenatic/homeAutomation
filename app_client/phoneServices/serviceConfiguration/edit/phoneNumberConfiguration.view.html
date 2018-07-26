@@ -1,0 +1,29 @@
+<navigation></navigation>
+<main role="main" class="container">
+
+  <page-header content="vm.pageHeader"></page-header>
+
+  <div class="alert alert-danger" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
+
+
+  <form>
+    <div class="form-row">
+      <div class="form-group col-lg-6">
+	<label for="name">Name</label>
+	<input type="text" class="form-control" id="name" placeholder="Name der Telefonnummer" ng-model="vm.input.name">
+      </div>
+      <div class="form-group col-lg-6">
+	<label for="phonenumber">Rufnummer</label>
+	<input type="text" class="form-control" id="phonenumber" placeholder="Die Telefonnummer" ng-model="vm.input.number">
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="mr-2"><button type="button" class="btn btn-secondary" ng-click="vm.savePhonenumberConfiguration()">Speichern</button></div>
+    <div class="mr-2"><a href="/ui/phoneServices/phoneNumberConfiguration" class="btn btn-secondary">Abbrechen</a></div>
+  </div>
+
+
+<footer-generic></footer-generic>
+
+</main>

@@ -7,6 +7,7 @@ import * as logger from "morgan";
 import { MeasurementRoutes } from "./routes/MeasurementRoutes";
 import { TwilioRoutes } from "./routes/TwilioRoutes";
 import { PhonenumberConfigurationRoutes } from './routes/PhonenumberConfigurationRoutes';
+import { ServiceConfigurationRoutes } from './routes/ServiceConfigurationRoutes';
 import { UiRoutes } from "./routes/UiRoutes";
 
 
@@ -16,6 +17,7 @@ class App {
     public measurementRoutes: MeasurementRoutes = new MeasurementRoutes();
     public twilioRoutes: TwilioRoutes = new TwilioRoutes();
     public phonenumberConfigurationRoutes: PhonenumberConfigurationRoutes = new PhonenumberConfigurationRoutes();
+    public serviceConfigurationRoutes: ServiceConfigurationRoutes = new ServiceConfigurationRoutes();
     public uiRoutes: UiRoutes = new UiRoutes();
 
     constructor() {
@@ -26,6 +28,7 @@ class App {
         this.measurementRoutes.routes(this.app);
         this.twilioRoutes.routes(this.app);
         this.phonenumberConfigurationRoutes.routes(this.app);
+        this.serviceConfigurationRoutes.routes(this.app);
         this.uiRoutes.routes(this.app);
 
         this.mongoSetup();

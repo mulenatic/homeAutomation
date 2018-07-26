@@ -1,0 +1,33 @@
+<navigation></navigation>
+<main role="main" class="container">
+  
+  <page-header content="vm.pageHeader"></page-header>
+
+  <div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+	<th>Name</th>
+	<th>Nummer</th>
+	<th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in vm.configurations">
+	<td>{{item.name}}</td>
+	<td>{{item.number}}</td>
+	<td>
+	  <a href="/ui/phoneServices/phoneNumberConfiguration/{{item._id}}"  class="btn btn-secondary btn-sm">Bearbeiten</a>&nbsp;
+	  <button class="btn btn-secondary btn-sm" ng-click="vm.deleteConfiguration(item._id)">Löschen</button>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="row">
+    <a href="/ui/phoneServices/phoneNumberConfiguration/create" class="btn btn-secondary">Neu</a>
+  </div>
+  <footer-generic></footer-generic>
+
+</main>
