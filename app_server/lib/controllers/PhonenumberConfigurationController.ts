@@ -31,7 +31,10 @@ export class PhonenumberConfigurationController {
 
     public deletePhonenumberConfiguration(req: Request, res: Response) {
 
+        console.log('Try to delete phonenumber');
         var id = req.params.id;
+        console.log('id = ' + id);
+
         phonenumberConfigurationModel
             .deleteOne({ _id: id }, (err) => {
                 if (err) {

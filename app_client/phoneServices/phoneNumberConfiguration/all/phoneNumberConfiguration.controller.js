@@ -37,12 +37,12 @@
 		}, (err) => {
 		    vm.getConfigurations();
 		    console.log(err);
-		    alert(err);
+		    alert("Error occured: " + err);
 		})
 		.catch((err) => {
 		    console.log(err);
-		    alert(err);
-		));
+		    alert("Fatal error occured: " + err);
+		});
 		
 
 	};

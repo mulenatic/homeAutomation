@@ -20,7 +20,7 @@
 
 	var deleteConfiguration = function(configurationId) {
 
-	    return $http.delete('/api/phonnumberConfiguration/' + String(configurationId));
+	    return $http.delete('/api/phonenumberConfiguration/' + String(configurationId));
 	}
 
 	return {
