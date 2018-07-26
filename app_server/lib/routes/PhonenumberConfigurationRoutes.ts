@@ -12,8 +12,8 @@ export class PhonenumberConfigurationRoutes {
             .post(this.controller.savePhonenumberConfiguration);
 
         app.route('/api/phonenumberConfiguration/:id')
-            .get(this.controller.getAllPhonenumberConfigurations);
-            .delete (this.controller.deletePhonenumberConfiguration);
+            .get(this.controller.getAllPhonenumberConfigurations)
+            .delete(this.controller.deletePhonenumberConfiguration);
 
     }
 

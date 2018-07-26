@@ -6,6 +6,7 @@ export const PhonenumberConfigurationSchema = new Schema({
 
     name: {
         type: String,
+        index: { unique: true },
         required: true,
     },
     number: {

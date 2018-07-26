@@ -22,25 +22,29 @@ export class PhonenumberConfigurationController {
         phonenumberConfigurationModel
             .create(req.body, (err, configuration) => {
                 if (err) {
+                    res.statusCode = 400;
+                    console.log(err);
                     res.send(err);
+                } else {
+                    res.json(configuration);
                 }
-                res.json(configuration);
             });
 
     }
 
     public deletePhonenumberConfiguration(req: Request, res: Response) {
 
-        console.log('Try to delete phonenumber');
         var id = req.params.id;
-        console.log('id = ' + id);
 
         phonenumberConfigurationModel
             .deleteOne({ _id: id }, (err) => {
                 if (err) {
+                    res.statusCode = 400;
                     console.log(err);
+                    res.send(err);
+                } else {
+                    res.sendStatus(204);
                 }
-                res.sendStatus(204);
             });
 
     }
