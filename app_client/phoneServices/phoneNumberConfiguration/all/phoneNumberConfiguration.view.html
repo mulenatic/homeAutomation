@@ -18,7 +18,7 @@
 	<td>{{item.name}}</td>
 	<td>{{item.number}}</td>
 	<td>
-	  <button class="btn btn-secondary btn-sm">Bearbeiten</button>&nbsp;
+	  <a href="/ui/phoneServices/phoneNumberConfiguration/{{item._id}}"  class="btn btn-secondary btn-sm">Bearbeiten</a>&nbsp;
 	  <button class="btn btn-secondary btn-sm" ng-click="vm.deleteConfiguration(item._id)">Löschen</button>
 	</td>
       </tr>

@@ -39,6 +39,12 @@
 		controller: "phoneNumberConfigurationEditCtrl",
 		controllerAs: 'vm'
 	    })
+	    .when('/ui/phoneServices/phoneNumberConfiguration/:id', {
+		templateUrl: 'phoneServices/phoneNumberConfiguration/edit/phoneNumberConfiguration.view.html',
+		controller: "phoneNumberConfigurationEditCtrl",
+		controllerAs: 'vm'
+	    })
+
     	    .otherwise({redirectTo: '/ui'});
     }
 

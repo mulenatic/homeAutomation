@@ -12,6 +12,10 @@
 
 	}
 
+	var getPhonenumberConfiguration = function(id) {
+	    return $http.get('/api/phonenumberConfiguration');
+	}
+
 	var savePhonenumberConfiguration = function(input) {
 
 	    return $http.post('/api/phonenumberConfiguration', input);
@@ -25,6 +29,7 @@
 
 	return {
 	    getAllPhonenumberConfigurations: getAllPhonenumberConfigurations,
+	    getPhonenumberConfiguration: getPhonenumberConfiguration,
 	    savePhonenumberConfiguration: savePhonenumberConfiguration,
 	    deleteConfiguration: deleteConfiguration
 	};

@@ -4,7 +4,7 @@
 	.module('homeAutomationApp')
 	.controller('phoneNumberConfigurationEditCtrl', phoneNumberConfigurationEditCtrl);
 
-    function phoneNumberConfigurationEditCtrl(phonenumberConfigurationService, $location) {
+    function phoneNumberConfigurationEditCtrl(phonenumberConfigurationService, $location, $routeParams) {
 
 	var vm = this;
 
@@ -19,6 +19,20 @@
 	vm.input.number = null;
 	vm.errorMessage = null;
 
+	if ($routeParams._id) {
+
+	    phonenumberConfigurationService
+		.getPhonenumberConfiguration($routeParams._id);
+		.then((configuration) => {
+		    vm.input = configuration.data;
+		})
+		.catch((err) => {
+		    vm.errorMessage = "Beim Laden der Daten ist ein Problem aufgetreten";
+		    console.log(err);
+		});
+
+	}
+
 	vm.savePhonenumberConfiguration = function() {
 
 	    vm.errorMessage = null;
@@ -31,7 +45,7 @@
 		catch((err) => {
 		    vm.errorMessage = "Alle Felder müssen gefüllt sein, der Name muss eindeutig sein.";
 		    console.log(err);
-		});;
+		});
 	};
 
 	

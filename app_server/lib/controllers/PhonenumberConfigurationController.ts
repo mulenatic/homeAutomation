@@ -8,15 +8,32 @@ export class PhonenumberConfigurationController {
 
     public getAllPhonenumberConfigurations(req: Request, res: Response) {
 
-        phonenumberConfigurationModel.find({}, (err, configurations) => {
+        phonenumberConfigurationModel.find({}, (err, configuration) => {
             if (err) {
+                res.statusCode = 400;
+                console.log(err);
                 res.send(err);
+            } else {
+                res.json(configuration);
             }
-            res.json(configurations);
         });
 
     }
 
+    public getPhonenumberConfiguration(req: Request, res: Response) {
+
+        phonenumberConfigurationModel.findOne({ _id: req.params.id }, (err, configuration) => {
+            if (err) {
+                res.statusCode = 400;
+                console.log(err);
+                res.send(err);
+            } else {
+                res.json(configuration);
+            }
+
+        });
+
+    }
 
     public savePhonenumberConfiguration(req: Request, res: Response) {
         phonenumberConfigurationModel
@@ -48,5 +65,6 @@ export class PhonenumberConfigurationController {
             });
 
     }
+
 
 }
