@@ -37,7 +37,9 @@ class App {
 
     private mongoSetup(): void {
 
-        let dbURI = 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASSWORD + '@ds143070.mlab.com:43070/gettingmean';
+        console.log(process.env.MONGO_URL);
+        let dbURI = process.env.MONGO_URL;
+        //let dbURI = 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASSWORD + '@ds143070.mlab.com:43070/gettingmean';
         //        mongoose.Promise = global.Promise;
         mongoose.connect(dbURI, { useNewUrlParser: true });
     }
